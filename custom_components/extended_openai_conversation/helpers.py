@@ -129,10 +129,10 @@ def _get_rest_data(hass, rest_config, arguments):
 async def validate_authentication(
     hass: HomeAssistant,
     api_key: str,
-    base_url: str,
-    api_version: str,
-    organization: str = None,
-    skip_authentication=False,
+    base_url: str | None,
+    api_version: str | None,
+    organization: str | None = None,
+    skip_authentication: bool | None = False,
 ) -> None:
     if skip_authentication:
         return
@@ -391,7 +391,7 @@ class NativeFunctionExecutor(FunctionExecutor):
         exposed_entities,
     ):
         user = await hass.auth.async_get_user(user_input.context.user_id)
-        return {'name': user.name if user and hasattr(user, 'name') else 'Unknown'}
+        return {"name": user.name if user and hasattr(user, "name") else "Unknown"}
 
     async def get_statistics(
         self,

@@ -10,8 +10,10 @@ from openai import AsyncAzureOpenAI, AsyncOpenAI
 from openai._exceptions import AuthenticationError, OpenAIError
 from openai.types.chat.chat_completion import (
     ChatCompletion,
-    ChatCompletionMessage,
     Choice,
+)
+from openai.types.chat.chat_completion_message import (
+    ChatCompletionMessage,
 )
 import yaml
 
